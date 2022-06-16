@@ -7,8 +7,8 @@ const cartas = ["./imagens/bobrossparrot.gif",
 "./imagens/unicornparrot.gif",];
 const cartasEmJogo = [];
 const jogadas = [];
-let contador = 0;
-let last;
+let contador = 1;
+let selecionados = [];
 function comparador() {
     return Math.random() - 0.5;
 }
@@ -46,28 +46,22 @@ function colocarCartas(numero, array){
 }
 
 function selecionar (elemento, indice) {
+    const cartasCampo = document.querySelectorAll(".cartas");
     const pai = elemento.parentNode;
     let back = pai.querySelector(".back");
     back.classList.add("virada")
     elemento.classList.add("virada");
+    selecionados.push(indice);
+    if(contador%2 === 0){
+        if(cartasEmJogo[indice] !== cartasEmJogo[selecionados[selecionados.length-2]]){
+            cartasCampo[selecionados[selecionados.length-2]*2].classList.remove("virada");
+            cartasCampo[((selecionados[selecionados.length-2])*2)+1].classList.remove("virada");
+            cartasCampo[indice*2].classList.remove("virada");
+            cartasCampo[(indice*2)+1].classList.remove("virada");
+        }
+    }
     contador++;
-    jogada(indice, elemento, back);
 }
 
-function jogada(indice, elemento, back){
-    if(contador%2 === 0){
-        back.classList.toggle("virada");
-        elemento.classList.toggle("virada");
-        console.log(contador);
-        console.log(elemento)
-        console.log(back)
-        if(cartasEmJogo[indice] !== cartasEmJogo[last]){
-            back.classList.toggle("virada");
-            elemento.classList.toggle("virada");
-        }
-    }else{
-        last = indice;
-    }
-}
 
 iniciarJogo();
