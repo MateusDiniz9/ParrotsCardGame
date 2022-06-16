@@ -46,22 +46,25 @@ function colocarCartas(numero, array){
 }
 
 function selecionar (elemento, indice) {
-    const cartasCampo = document.querySelectorAll(".cartas");
     const pai = elemento.parentNode;
     let back = pai.querySelector(".back");
     back.classList.add("virada")
     elemento.classList.add("virada");
     selecionados.push(indice);
     if(contador%2 === 0){
-        if(cartasEmJogo[indice] !== cartasEmJogo[selecionados[selecionados.length-2]]){
-            cartasCampo[selecionados[selecionados.length-2]*2].classList.remove("virada");
-            cartasCampo[((selecionados[selecionados.length-2])*2)+1].classList.remove("virada");
-            cartasCampo[indice*2].classList.remove("virada");
-            cartasCampo[(indice*2)+1].classList.remove("virada");
-        }
+        jogada(indice);
     }
     contador++;
 }
 
+function jogada(indice){
+    const cartasCampo = document.querySelectorAll(".cartas");
+    if(cartasEmJogo[indice] !== cartasEmJogo[selecionados[selecionados.length-2]]){
+        cartasCampo[selecionados[selecionados.length-2]*2].classList.remove("virada");
+        cartasCampo[((selecionados[selecionados.length-2])*2)+1].classList.remove("virada");
+        cartasCampo[indice*2].classList.remove("virada");
+        cartasCampo[(indice*2)+1].classList.remove("virada");
+    }
+}
 
 iniciarJogo();
