@@ -21,8 +21,15 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
 }
+
+.jogo > div{
+    width: 120px;
+    height: 160px;
+    margin: 15px 15px;
+    position: relative;
+}
+
 
 .cartas{
     width: 120px;
@@ -34,8 +41,23 @@ body{
     align-items: center;
     border: 1px solid #99CEA8;
     border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all 1s;
+    transform-style: preserve-3d;
 }
 
+.back{
+	transform: rotateY(180deg);
+}
+
+.virada.back {
+    transform: rotateY(0deg);
+}
+.virada.front {
+    transform: rotateY(-180deg);
+}
 .cartas img{
     width: 100px;
     height: 100px;
