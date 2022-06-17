@@ -36,13 +36,13 @@ function colocarCartas(numero, array){
     for(let i = 0; i < numero; i++){
         local.innerHTML+= `        
         <div>
-        <div class="cartas front" onclick="selecionar(this, ${[i]})">
-            <img src="./imagens/front.png">
-        </div>
-        <div class="cartas back">
-            <img src="${cartasEmJogo[i]}">
-        </div>
-        </div>  
+            <div class="cartas front" onclick="selecionar(this, ${[i]})">
+                <img src="./imagens/front.png">
+            </div>
+            <div class="cartas back">
+                <img src="${cartasEmJogo[i]}">
+            </div>
+        </div>          
         `
     }
 }
@@ -64,7 +64,7 @@ function selecionar (elemento, indice) {
 function jogada(indice){
     const cartasCampo = document.querySelectorAll(".cartas");
     let pos = selecionados[selecionados.length-2];
-    if(cartasEmJogo[indice] !== cartasEmJogo[selecionados[selecionados.length-2]]){
+    if(cartasEmJogo[indice] !== cartasEmJogo[pos]){
         cartasCampo[pos*2].classList.remove("virada");
         cartasCampo[(pos*2)+1].classList.remove("virada");
         cartasCampo[indice*2].classList.remove("virada");

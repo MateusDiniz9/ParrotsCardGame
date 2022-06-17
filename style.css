@@ -2,6 +2,10 @@
 
 body{
     background-color: #EEF9BF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .topo{
     width: 100%;
@@ -16,11 +20,15 @@ body{
     font-size: 56px;
     color: #75B79E;
 }
+
+/*Não consegui resolver completamente a parte do layout ficar responsivo com q qntd de cartas colocadas*/ 
+
 .jogo{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
 .jogo > div{
@@ -67,4 +75,8 @@ body{
     .topo h1{
         font-size: 32px;
     }
+    .jogo {
+        max-width: 60%;
+    }
+    /* decidi deixar o mobile assim, em alguns dispositivos mais largos tem 2 colunas de cartas e nos menores ficaria uma coluna só como no layout*/
 }
