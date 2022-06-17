@@ -15,7 +15,6 @@ function comparador() {
     return Math.random() - 0.5;
 }
 
-
 function iniciarJogo(){
     qntCartas = prompt("Com quantas cartas deseja jogar?");
     if(qntCartas%2 !== 0 || qntCartas > 14 || qntCartas < 4){
@@ -47,8 +46,6 @@ function colocarCartas(numero, array){
     }
 }
 
-
-
 function selecionar (elemento, indice) {
     const pai = elemento.parentNode;
     let back = pai.querySelector(".back");
@@ -76,6 +73,5 @@ function jogada(indice){
         alert(`Você ganhou em ${contador-1} jogadas!`);
     }
 }
-
 
 iniciarJogo();
