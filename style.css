@@ -26,10 +26,10 @@ body{
 .jogo > div{
     width: 120px;
     height: 160px;
-    margin: 15px 15px;
+    margin: 15px 30px;
+    margin-left: 0px;
     position: relative;
 }
-
 
 .cartas{
     width: 120px;
